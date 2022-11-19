@@ -1,0 +1,16 @@
+
+
+button {
+  background-color: rgba(115, 1, 115, 0.46);
+  color: white;
+  border: 1px solid white;
+  margin: 1rem;
+  padding: 1rem 1.75rem;
+  border-radius: 5px;
+}
+
+button:hover{
+
+    background-color: rgb(115, 1, 115);
+
+}
