@@ -1,10 +1,15 @@
-import styles from "./Product.module.css"
+import styles from "./Product.module.css";
 
 const Product = (props) => {
   return (
     <div className={styles.product} onClick={props.click}>
-      <p>product name : {props.name} course</p>
-      <p>product price : {props.price}</p>
+      <p>product name : {props.product.title} course</p>
+      <p>product price : {props.product.price}</p>
+      <span className={styles.value}>{props.product.quantity}</span>
+      <input className={styles.input} type="text" onChange={props.onChange} />
+      <button onClick={props.btnIncrement}>+</button>
+      <button onClick={props.btnDecrement}>-</button>
+      <button onClick={props.btnDelete}>delete</button>
     </div>
   );
 };
