@@ -2,5 +2,49 @@
   border: 1px solid #ccc;
   border-radius: 10px;
   padding: 20px 40px;
-  background-color: rgb(49, 44, 44);
+  box-shadow: 0 0 4px 5px  rgb(65, 70, 225);
+  background-color: #666666ae;
+  display: flex;
+  justify-content: space-around;
+  width: 70rem; 
+  margin-top: 15px;
+}
+
+button {
+  background-color: transparent;
+  color: #75d125;
+  border: 1px solid #75d125;
+  padding: 10px 15px;
+  border-radius: 5px;
+}
+
+button:hover {
+  background-color: #75d125;
+  color: white;
+}
+
+.value {
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  background-color: #75d125;
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  padding: 1rem;
+}
+
+.input{
+  outline: none;
+  border: 1px solid #75d125;
+  border-radius: 5px;
+  color: #75d125;
+  background: transparent;
+  padding: 5px 25px;
+}
+
+.input:focus{
+  border: 3px solid #75d125;
 }
