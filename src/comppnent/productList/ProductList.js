@@ -44,7 +44,10 @@ class ProductList extends Component {
     this.setState({ products: product });
   };
 
-  render() {
+  renderProduct = () => {
+    if (this.state.products.length === 0)
+      return <>there is no product in your card</>;
+
     return (
       <div>
         {this.state.products.map((product) => {
@@ -55,10 +58,19 @@ class ProductList extends Component {
               btnDelete={() => this.deleteHandler(product.id)}
               btnIncrement={() => this.incrementHandler(product.id)}
               btnDecrement={() => this.decrementHandler(product.id)}
+              onChange={(e) => this.changeHandler(e, product.id)}
             />
           );
         })}
       </div>
+    );
+  };
+  render() {
+    return (
+      <>
+        {this.state.products.length === 0 && <>یه چی بخر دیگههههههه</>}
+        <div>{this.renderProduct()}</div>
+      </>
     );
   }
 }
