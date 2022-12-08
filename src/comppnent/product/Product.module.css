@@ -48,3 +48,8 @@ button:hover {
 .input:focus{
   border: 3px solid #75d125;
 }
+
+.removeTrash{
+  border: 1px solid red;
+  color: red;
+}
