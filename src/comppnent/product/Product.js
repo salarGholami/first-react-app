@@ -1,28 +1,36 @@
-import styles from "./Product.module.css";
+import style from "./Product.module.css";
 import { BiTrash } from "react-icons/bi";
 
 const Product = (props) => {
   return (
-    <div className={styles.product} onClick={props.click}>
-      <p>product name : {props.product.title} course</p>
-      <p>product price : {props.product.price}</p>
-      <span className={styles.value}>{props.product.quantity}</span>
-      <input
-        className={styles.input}
+    <div className={style.product} onClick={props.click}>
+      <p>Product Name:{props.product.title}</p>
+      <p>Product price:{props.product.price}</p>
+      <span className={style.value}>{props.product.quantity}</span>
+      <input 
+      className={style.input}
         type="text"
-        onChange={props.onChange}
+        onChange={props.changeHandler}
         value={props.product.title}
       />
-      <button onClick={props.btnIncrement}>+</button>
       <button
-        onClick={props.btnDecrement}
-        className={`${props.product.quantity === 1 && styles.removeTrash}`}
+        className={`${style.button} ${style.inc}`}
+        onClick={props.onIncrementHandler}
+      >
+        +
+      </button>
+      <button
+        className={`${style.button} ${
+          props.product.quantity === 1 && style.removeTrash
+        }`}
+        onClick={props.onDencremntHandler}
       >
         {props.product.quantity > 1 ? "-" : <BiTrash />}
       </button>
-      <button onClick={props.btnDelete}>delete</button>
+      <button className={style.button} onClick={props.onDelete}>
+        delete
+      </button>
     </div>
   );
 };
-
 export default Product;

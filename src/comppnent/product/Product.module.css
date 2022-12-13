@@ -21,6 +21,11 @@ button {
 button:hover {
   background-color: #75d125;
   color: white;
+  cursor: pointer;
+}
+
+.inc{
+background-color: #75d1251d;
 }
 
 .value {
@@ -54,3 +59,10 @@ button:hover {
   border: 1px solid red;
   color: red;
 }
+.removeTrash:hover{
+  border: 1px solid red;
+  color: red;
+  /* padding: 6px 7px;  */
+  background-color: rgba(255, 0, 0, 0.105);
+}
+
