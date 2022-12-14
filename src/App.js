@@ -55,7 +55,7 @@ class app extends Component {
           onRemove={this.removeHandler}
           onIncrement={this.incrementHandler}
           onDecremnt={this.decrementHandler}
-          onChenge={this.changeHandler}
+          onChange={this.changeHandler}
         />
       </div>
     );

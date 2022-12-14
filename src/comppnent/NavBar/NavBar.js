@@ -1,10 +1,10 @@
 import style from "./NavBar.module.css";
 
-const Navbar = (props) => {
+const Navbar = ({ totalItem }) => {
   return (
     <header className={style.navBar}>
       <h2>gitarisma online shopping</h2>
-      <span>{props.totalItem}</span>
+      <span>{totalItem}</span>
     </header>
   );
 };

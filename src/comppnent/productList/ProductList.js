@@ -3,26 +3,29 @@ import Product from "../product/Product";
 
 class ProductList extends Component {
   renderProdact = () => {
-    if (this.props.products.length === 0)
-      return <div>سبد خرید شما خالی میباشد</div>;
+    const { products, onChange, onIncrement, onDecremnt, onRemove } =
+      this.props;
 
-    return this.props.products.map((product, index) => {
+    if (products.length === 0) return <div>سبد خرید شما خالی میباشد</div>;
+
+    return products.map((product, index) => {
       return (
         <Product
           product={product}
           key={index}
-          onDelete={() => this.props.onRemove(product.id)}
-          onIncrementHandler={() => this.props.onIncrement(product.id)}
-          onDencremntHandler={() => this.props.onDecremnt(product.id)}
-          changeHandler={(e) => this.props.onChenge(e, product.id)}
+          onDelete={() => onRemove(product.id)}
+          onIncrementHandler={() => onIncrement(product.id)}
+          onDencremntHandler={() => onDecremnt(product.id)}
+          changeHandler={(e) => onChange(e, product.id)}
         />
       );
     });
   };
   render() {
+    const { products } = this.props;
     return (
       <div className="container">
-        {!this.props.products.length && <div>برگرد ب فروشگاه پسر</div>}
+        {!products.length && <div>برگرد ب فروشگاه پسر</div>}
         {this.renderProdact()}
       </div>
     );
