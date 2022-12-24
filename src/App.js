@@ -4,6 +4,11 @@ import ProductList from "./comppnent/productList/ProductList";
 import NavBar from "./comppnent/NavBar/NavBar";
 
 class app extends Component {
+  constructor(props) {
+    super(props);
+    console.log("App.js constructor");
+  }
+
   state = {
     products: [
       { title: "node.js", price: "75 $", id: "1", quantity: 1 },
@@ -17,7 +22,7 @@ class app extends Component {
     const fillterProduct = this.state.products.filter((p) => p.id !== id);
     this.setState({ products: fillterProduct });
   };
-  
+
   incrementHandler = (id) => {
     const product = [...this.state.products];
     const selectItem = product.find((p) => p.id === id);
@@ -44,7 +49,12 @@ class app extends Component {
     this.setState({ product });
   };
 
+  componentDidMount() {
+    console.log("App.js componentDidMount");
+  }
+
   render() {
+    console.log("App.js render");
     return (
       <div className="container">
         <NavBar

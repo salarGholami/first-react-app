@@ -9,6 +9,7 @@ const Product = ({
   onDelete,
   click,
 }) => {
+  console.log("Product.js render")
   return (
     <div className={style.product} onClick={click}>
       <p>Product Name:{product.title}</p>
