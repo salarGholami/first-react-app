@@ -1,7 +1,11 @@
 import React, { Component } from "react";
-import Product from "../product/Product";
+import Product from  "../product/Product";
 
 class ProductList extends Component {
+  componentDidUpdate(prevProps, prevState) {
+    console.log("ProductList.js componentDidUpdate");
+  }
+
   renderProdact = () => {
     const { products, onChange, onIncrement, onDecremnt, onRemove } =
       this.props;
@@ -22,7 +26,7 @@ class ProductList extends Component {
     });
   };
   render() {
-     console.log("ProductList.js render")
+    console.log("ProductList.js render");
     const { products } = this.props;
     return (
       <div className="container">

@@ -53,6 +53,10 @@ class app extends Component {
     console.log("App.js componentDidMount");
   }
 
+componentDidUpdate(prevProps, prevState) {
+  console.log("App.js componentDidUpdate")
+}
+
   render() {
     console.log("App.js render");
     return (
