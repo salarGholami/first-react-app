@@ -24,38 +24,51 @@ class app extends Component {
   };
 
   incrementHandler = (id) => {
-    const product = [...this.state.products];
-    const selectItem = product.find((p) => p.id === id);
-    selectItem.quantity++;
-    this.setState({ product });
+    const index = this.state.products.findIndex((item) => item.id === id);
+    console.log(index);
+
+    const product = { ...this.state.products[index] };
+    product.quantity++;
+
+    const products = [...this.state.products];
+    products[index] = product;
+
+    this.setState({ products });
   };
 
   decrementHandler = (id) => {
-    const product = [...this.state.products];
-    const selectItem = product.find((p) => p.id === id);
-    if (selectItem.quantity === 1) {
+    const index = this.state.products.findIndex((item) => item.id === id);
+    const product = { ...this.state.products[index] };
+    if (product.quantity === 1) {
       const fillterProduct = this.state.products.filter((p) => p.id !== id);
+
       this.setState({ products: fillterProduct });
     } else {
-      selectItem.quantity--;
-      this.setState({ product });
+      const products = [...this.state.products];
+      product.quantity--;
+      products[index] = product;
+      this.setState({ products });
     }
   };
 
   changeHandler = (event, id) => {
-    const product = [...this.state.products];
-    const selectItem = product.find((p) => p.id === id);
-    selectItem.title = event.target.value;
-    this.setState({ product });
+    const index = this.state.products.findIndex((item) => item.id === id);
+    const product = { ...this.state.products[index] };
+    product.title = event.target.value;
+
+    const products = [...this.state.products];
+    products[index] = product;
+    this.setState({ products });
   };
 
   componentDidMount() {
     console.log("App.js componentDidMount");
   }
 
-componentDidUpdate(prevProps, prevState) {
-  console.log("App.js componentDidUpdate")
-}
+  componentDidUpdate(prevProps, prevState) {
+    console.log("App.js componentDidUpdate");
+    console.log("App.js", prevState);
+  }
 
   render() {
     console.log("App.js render");
