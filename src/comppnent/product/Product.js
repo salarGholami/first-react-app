@@ -3,6 +3,9 @@ import { BiTrash } from "react-icons/bi";
 import { Component } from "react";
 
 class Product extends Component {
+  componentWillUnmount() {
+    console.log("product.js componentWillUnmount")
+  }
   render() {
     console.log("Product render");
     return (
