@@ -1,9 +1,11 @@
 import React, { Component } from "react";
 import "./App.css";
-import ProductList from "./comppnent/productList/ProductList";
-import NavBar from "./comppnent/NavBar/NavBar";
-import ClassCounter from "./comppnent/ClassCounter";
-import FunctionalCounter from "./comppnent/FunctionalCounter";
+// import ProductList from "./comppnent/productList/ProductList";
+// import NavBar from "./comppnent/NavBar/NavBar";
+// import ClassCounter from "./comppnent/ClassCounter";
+// import FunctionalCounter from "./comppnent/FunctionalCounter";
+import FunctionalTimer from "./comppnent/FuctionalTimer";
+// import ClassTimer from "./comppnent/ClassTimer";
 
 class app extends Component {
   constructor(props) {
@@ -17,6 +19,7 @@ class app extends Component {
       { title: "react.js", price: "85 $", id: "2", quantity: 2 },
       { title: "vue.js", price: "95 $", id: "3", quantity: 3 },
     ],
+    isShow: true,
   };
 
   removeHandler = (id) => {
@@ -73,10 +76,14 @@ class app extends Component {
   }
 
   render() {
-    console.log("App.js render");
     return (
       <div className="container">
-        <FunctionalCounter/>
+        <button onClick={() => this.setState({ isShow: !this.state.isShow })}>
+          {this.state.isShow ? "hide" : "show"}
+        </button>
+        {/* {this.state.isShow && <ClassTimer />} */}
+        {this.state.isShow && <FunctionalTimer />}
+        {/* <FunctionalCounter /> */}
         {/* <ClassCounter/> */}
         {/* <NavBar
           totalItem={this.state.products.filter((p) => p.quantity > 0).length}

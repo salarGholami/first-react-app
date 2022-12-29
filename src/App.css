@@ -6,3 +6,16 @@
   width: 100%;
 }
 
+button {
+  background-color: transparent;
+  color: #75d125;
+  border: 1px solid #75d125;
+  padding: 10px 15px;
+  border-radius: 5px;
+}
+
+button:hover {
+  background-color: #75d125;
+  color: white;
+  cursor: pointer;
+}
