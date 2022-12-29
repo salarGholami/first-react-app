@@ -2,6 +2,8 @@ import React, { Component } from "react";
 import "./App.css";
 import ProductList from "./comppnent/productList/ProductList";
 import NavBar from "./comppnent/NavBar/NavBar";
+import ClassCounter from "./comppnent/ClassCounter";
+import FunctionalCounter from "./comppnent/FunctionalCounter";
 
 class app extends Component {
   constructor(props) {
@@ -74,7 +76,9 @@ class app extends Component {
     console.log("App.js render");
     return (
       <div className="container">
-        <NavBar
+        <FunctionalCounter/>
+        {/* <ClassCounter/> */}
+        {/* <NavBar
           totalItem={this.state.products.filter((p) => p.quantity > 0).length}
         />
         <ProductList
@@ -83,7 +87,7 @@ class app extends Component {
           onIncrement={this.incrementHandler}
           onDecremnt={this.decrementHandler}
           onChange={this.changeHandler}
-        />
+        /> */}
       </div>
     );
   }
