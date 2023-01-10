@@ -1,18 +1,20 @@
 import React, { Component } from "react";
 import "./App.css";
-import ProductList from "./comppnent/productList/ProductList";
-import NavBar from "./comppnent/NavBar/NavBar";
+// import ProductList from "./comppnent/productList/ProductList";
+// import NavBar from "./comppnent/NavBar/NavBar";
 // import ClassCounter from "./comppnent/ClassCounter";
 // import FunctionalCounter from "./comppnent/FunctionalCounter";
 // import FunctionalTimer from "./comppnent/FuctionalTimer";
 import Wrapper from "./comppnent/hoc/Wrapper";
+import CLickCounter from "./comppnent/hocExample/ClickCounter";
+import HoverCounter from "./comppnent/hocExample/HoverCounter";
 // import ClassTimer from "./comppnent/ClassTimer";
 
 class app extends Component {
-  constructor(props) {
-    super(props);
-    console.log("App.js constructor");
-  }
+  // constructor(props) {
+  //   super(props);
+  //   console.log("App.js constructor");
+  // }
 
   state = {
     products: [
@@ -67,20 +69,22 @@ class app extends Component {
     this.setState({ products });
   };
 
-  componentDidMount() {
-    console.log("App.js componentDidMount");
-  }
+  // componentDidMount() {
+  //   console.log("App.js componentDidMount");
+  // }
 
-  componentDidUpdate(prevProps, prevState) {
-    console.log("App.js componentDidUpdate");
-    console.log("App.js", prevState);
-  }
+  // componentDidUpdate(prevProps, prevState) {
+  //   console.log("App.js componentDidUpdate");
+  //   console.log("App.js", prevState);
+  // }
 
   render() {
-  console.log(this.props)
+    
     return (
       <>
-        <NavBar
+        <CLickCounter />
+        <HoverCounter />
+        {/* <NavBar
           totalItem={this.state.products.filter((p) => p.quantity > 0).length}
         />
         <ProductList
@@ -89,10 +93,10 @@ class app extends Component {
           onIncrement={this.incrementHandler}
           onDecremnt={this.decrementHandler}
           onChange={this.changeHandler}
-        />
+        /> */}
       </>
     );
   }
 }
 
-export default Wrapper(app,"container");
+export default Wrapper(app, "container");
