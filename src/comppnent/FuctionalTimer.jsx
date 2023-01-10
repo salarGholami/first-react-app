@@ -12,9 +12,10 @@ const FunctionalTimer = () => {
     return () => {
       clearInterval(interval);
     };
-  }, []);
+  });
 
   return <div>this is timer</div>;
 };
 
 export default FunctionalTimer;
+ 

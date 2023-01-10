@@ -1,10 +1,11 @@
 import React, { Component } from "react";
 import "./App.css";
-// import ProductList from "./comppnent/productList/ProductList";
-// import NavBar from "./comppnent/NavBar/NavBar";
+import ProductList from "./comppnent/productList/ProductList";
+import NavBar from "./comppnent/NavBar/NavBar";
 // import ClassCounter from "./comppnent/ClassCounter";
 // import FunctionalCounter from "./comppnent/FunctionalCounter";
-import FunctionalTimer from "./comppnent/FuctionalTimer";
+// import FunctionalTimer from "./comppnent/FuctionalTimer";
+import Wrapper from "./comppnent/hoc/Wrapper";
 // import ClassTimer from "./comppnent/ClassTimer";
 
 class app extends Component {
@@ -76,16 +77,10 @@ class app extends Component {
   }
 
   render() {
+  console.log(this.props)
     return (
-      <div className="container">
-        <button onClick={() => this.setState({ isShow: !this.state.isShow })}>
-          {this.state.isShow ? "hide" : "show"}
-        </button>
-        {/* {this.state.isShow && <ClassTimer />} */}
-        {this.state.isShow && <FunctionalTimer />}
-        {/* <FunctionalCounter /> */}
-        {/* <ClassCounter/> */}
-        {/* <NavBar
+      <>
+        <NavBar
           totalItem={this.state.products.filter((p) => p.quantity > 0).length}
         />
         <ProductList
@@ -94,10 +89,10 @@ class app extends Component {
           onIncrement={this.incrementHandler}
           onDecremnt={this.decrementHandler}
           onChange={this.changeHandler}
-        /> */}
-      </div>
+        />
+      </>
     );
   }
 }
 
-export default app;
+export default Wrapper(app,"container");
