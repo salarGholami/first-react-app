@@ -6,8 +6,9 @@ import "./App.css";
 // import FunctionalCounter from "./comppnent/FunctionalCounter";
 // import FunctionalTimer from "./comppnent/FuctionalTimer";
 import Wrapper from "./comppnent/hoc/Wrapper";
-import CLickCounter from "./comppnent/hocExample/ClickCounter";
-import HoverCounter from "./comppnent/hocExample/HoverCounter";
+// import CLickCounter from "./comppnent/hocExample/ClickCounter";
+// import HoverCounter from "./comppnent/hocExample/HoverCounter";
+import ParentComp from "./comppnent/PureMemoComp/ParentComp";
 // import ClassTimer from "./comppnent/ClassTimer";
 
 class app extends Component {
@@ -69,21 +70,22 @@ class app extends Component {
     this.setState({ products });
   };
 
-  // componentDidMount() {
-  //   console.log("App.js componentDidMount");
-  // }
+  componentDidMount() {
+    // console.log("App.js componentDidMount");
+  }
 
-  // componentDidUpdate(prevProps, prevState) {
-  //   console.log("App.js componentDidUpdate");
-  //   console.log("App.js", prevState);
-  // }
+  componentDidUpdate(prevProps, prevState) {
+    // console.log("App.js componentDidUpdate");
+    // console.log("App.js", prevState);
+  }
 
   render() {
-    
     return (
       <>
-        <CLickCounter />
-        <HoverCounter />
+        <ParentComp />
+
+        {/* <CLickCounter />
+        <HoverCounter /> */}
         {/* <NavBar
           totalItem={this.state.products.filter((p) => p.quantity > 0).length}
         />
