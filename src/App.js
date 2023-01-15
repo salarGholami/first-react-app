@@ -10,7 +10,8 @@ import Wrapper from "./comppnent/hoc/Wrapper";
 // import HoverCounter from "./comppnent/hocExample/HoverCounter";
 // import ParentComp from "./comppnent/PureMemoComp/ParentComp";
 // import ClassRef from "./comppnent/ref/ClassRef";
-import FunctionalRef from "./comppnent/ref/FunctionalRef";
+// import FunctionalRef from "./comppnent/ref/FunctionalRef";
+import UseRefExample from "./comppnent/ref/useRef";
 // import ClassTimer from "./comppnent/ClassTimer";
 
 class app extends Component {
@@ -84,8 +85,10 @@ class app extends Component {
   render() {
     return (
       <>
+        <UseRefExample />
+
         {/* <ClassRef /> */}
-        <FunctionalRef />
+        {/* <FunctionalRef /> */}
 
         {/* <ParentComp /> */}
 
