@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import "./App.css";
-// import ProductList from "./comppnent/productList/ProductList";
-// import NavBar from "./comppnent/NavBar/NavBar";
+import ProductList from "./comppnent/productList/ProductList";
+import NavBar from "./comppnent/NavBar/NavBar";
 // import ClassCounter from "./comppnent/ClassCounter";
 // import FunctionalCounter from "./comppnent/FunctionalCounter";
 // import FunctionalTimer from "./comppnent/FuctionalTimer";
@@ -11,9 +11,10 @@ import Wrapper from "./comppnent/hoc/Wrapper";
 // import ParentComp from "./comppnent/PureMemoComp/ParentComp";
 // import ClassRef from "./comppnent/ref/ClassRef";
 // import FunctionalRef from "./comppnent/ref/FunctionalRef";
-import UseRefExample from "./comppnent/ref/useRef";
+// import UseRefExample from "./comppnent/ref/useRef";
 // import ClassTimer from "./comppnent/ClassTimer";
 
+export const UserContext = React.createContext();
 class app extends Component {
   // constructor(props) {
   //   super(props);
@@ -85,7 +86,7 @@ class app extends Component {
   render() {
     return (
       <>
-        <UseRefExample />
+        {/* <UseRefExample /> */}
 
         {/* <ClassRef /> */}
         {/* <FunctionalRef /> */}
@@ -94,16 +95,18 @@ class app extends Component {
 
         {/* <CLickCounter />
         <HoverCounter /> */}
-        {/* <NavBar
-          totalItem={this.state.products.filter((p) => p.quantity > 0).length}
-        />
-        <ProductList
-          products={this.state.products}
-          onRemove={this.removeHandler}
-          onIncrement={this.incrementHandler}
-          onDecremnt={this.decrementHandler}
-          onChange={this.changeHandler}
-        /> */}
+        <UserContext.Provider value={"Salar"}>
+          <NavBar
+            totalItem={this.state.products.filter((p) => p.quantity > 0).length}
+          />
+          <ProductList
+            products={this.state.products}
+            onRemove={this.removeHandler}
+            onIncrement={this.incrementHandler}
+            onDecremnt={this.decrementHandler}
+            onChange={this.changeHandler}
+          />
+        </UserContext.Provider>
       </>
     );
   }

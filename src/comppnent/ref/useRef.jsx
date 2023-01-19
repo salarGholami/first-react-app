@@ -17,11 +17,16 @@ const UseRefExample = () => {
   }, [inputValue]);
   return (
     <div>
-      <input type="text" value={inputValue} onChange={changeHandler} ref={inputRef}/>
+      <input
+        type="text"
+        value={inputValue}
+        onChange={changeHandler}
+        ref={inputRef}
+      />
       <p>
         my name is {inputValue} and it used to be {previousValue.current}
       </p>
-      <button onClick={resetHandler} >reset</button>
+      <button onClick={resetHandler}>reset</button>
     </div>
   );
 };

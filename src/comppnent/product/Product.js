@@ -1,6 +1,7 @@
 import style from "./Product.module.css";
 import { BiTrash } from "react-icons/bi";
-import { useEffect } from "react";
+import { useContext, useEffect } from "react";
+import { UserContext } from "../../App";
 
 const Product = ({
   product,
@@ -10,10 +11,9 @@ const Product = ({
   onDelete,
   click,
 }) => {
-  console.log("Product.js rerender");
-  useEffect(() => {
-    console.log("Product.js useEffect");
-  });
+  useEffect(() => {}, []);
+  const user = useContext(UserContext);
+  console.log(user);
   return (
     <div className={style.product} onClick={click}>
       <p>Product Name:{product.title}</p>
@@ -46,3 +46,4 @@ const Product = ({
   );
 };
 export default Product;
+ b 
