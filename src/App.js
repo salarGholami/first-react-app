@@ -1,11 +1,13 @@
 import React, { Component } from "react";
 import "./App.css";
-import ProductList from "./comppnent/productList/ProductList";
-import NavBar from "./comppnent/NavBar/NavBar";
+// import ProductList from "./comppnent/productList/ProductList";
+// import NavBar from "./comppnent/NavBar/NavBar";
 // import ClassCounter from "./comppnent/ClassCounter";
 // import FunctionalCounter from "./comppnent/FunctionalCounter";
 // import FunctionalTimer from "./comppnent/FuctionalTimer";
 import Wrapper from "./comppnent/hoc/Wrapper";
+import CounterProvider from "./comppnent/Context/CounterProvider";
+import CounterOne from "./comppnent/Context/CounterOne";
 // import CLickCounter from "./comppnent/hocExample/ClickCounter";
 // import HoverCounter from "./comppnent/hocExample/HoverCounter";
 // import ParentComp from "./comppnent/PureMemoComp/ParentComp";
@@ -95,7 +97,7 @@ class app extends Component {
 
         {/* <CLickCounter />
         <HoverCounter /> */}
-        <UserContext.Provider value={"Salar"}>
+        {/* <UserContext.Provider value={"Salar"}>
           <NavBar
             totalItem={this.state.products.filter((p) => p.quantity > 0).length}
           />
@@ -106,7 +108,11 @@ class app extends Component {
             onDecremnt={this.decrementHandler}
             onChange={this.changeHandler}
           />
-        </UserContext.Provider>
+        </UserContext.Provider> */}
+        <CounterProvider>
+          <p>welcome to context</p>
+          <CounterOne />
+        </CounterProvider>
       </>
     );
   }
