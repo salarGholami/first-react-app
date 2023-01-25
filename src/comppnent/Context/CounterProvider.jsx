@@ -20,4 +20,17 @@ const CounterProvider = ({ children }) => {
 export default CounterProvider;
 
 export const useCount = () => useContext(CounterContext);
-export const useCountActions = () => useContext(CounterContextDispatcher);
+
+export const useCountActions = () => {
+  const setCount = useContext(CounterContextDispatcher);
+
+  const addOne = () => {
+    setCount((prevCount) => prevCount + 1);
+  };
+
+  const addFive = () => {
+    setCount((prevCount) => prevCount + 5); 
+  };
+
+  return { addOne, addFive };
+};
