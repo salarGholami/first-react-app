@@ -7,7 +7,8 @@ import "./App.css";
 // import FunctionalTimer from "./comppnent/FuctionalTimer";
 import Wrapper from "./comppnent/hoc/Wrapper";
 import CounterProvider from "./comppnent/Context/CounterProvider";
-import CounterOne from "./comppnent/Context/CounterOne";
+// import CounterOne from "./comppnent/Context/CounterOne";
+import CounterReducer from "./comppnent/reducer/CountReducer";
 // import CLickCounter from "./comppnent/hocExample/ClickCounter";
 // import HoverCounter from "./comppnent/hocExample/HoverCounter";
 // import ParentComp from "./comppnent/PureMemoComp/ParentComp";
@@ -111,7 +112,8 @@ class app extends Component {
         </UserContext.Provider> */}
         <CounterProvider>
           <p>welcome to context</p>
-          <CounterOne />
+          {/* <CounterOne /> */}
+          <CounterReducer />
         </CounterProvider>
       </>
     );
