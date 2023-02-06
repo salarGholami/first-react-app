@@ -8,7 +8,8 @@ import "./App.css";
 import Wrapper from "./comppnent/hoc/Wrapper";
 import CounterProvider from "./comppnent/Context/CounterProvider";
 // import CounterOne from "./comppnent/Context/CounterOne";
-import CounterReducer from "./comppnent/reducer/CountReducer";
+// import CounterReducer from "./comppnent/reducer/CountReducer";
+import CounterOne from "./comppnent/Context/CounterOne";
 // import CLickCounter from "./comppnent/hocExample/ClickCounter";
 // import HoverCounter from "./comppnent/hocExample/HoverCounter";
 // import ParentComp from "./comppnent/PureMemoComp/ParentComp";
@@ -112,8 +113,8 @@ class app extends Component {
         </UserContext.Provider> */}
         <CounterProvider>
           <p>welcome to context</p>
-          {/* <CounterOne /> */}
-          <CounterReducer />
+          <CounterOne />
+          {/* <CounterReducer /> */}
         </CounterProvider>
       </>
     );
