@@ -1,124 +1,162 @@
-import React, { Component } from "react";
+import React, { useState } from "react";
 import "./App.css";
-// import ProductList from "./comppnent/productList/ProductList";
-// import NavBar from "./comppnent/NavBar/NavBar";
-// import ClassCounter from "./comppnent/ClassCounter";
-// import FunctionalCounter from "./comppnent/FunctionalCounter";
-// import FunctionalTimer from "./comppnent/FuctionalTimer";
 import Wrapper from "./comppnent/hoc/Wrapper";
-import CounterProvider from "./comppnent/Context/CounterProvider";
-// import CounterOne from "./comppnent/Context/CounterOne";
-// import CounterReducer from "./comppnent/reducer/CountReducer";
-import CounterOne from "./comppnent/Context/CounterOne";
-// import CLickCounter from "./comppnent/hocExample/ClickCounter";
-// import HoverCounter from "./comppnent/hocExample/HoverCounter";
-// import ParentComp from "./comppnent/PureMemoComp/ParentComp";
-// import ClassRef from "./comppnent/ref/ClassRef";
-// import FunctionalRef from "./comppnent/ref/FunctionalRef";
-// import UseRefExample from "./comppnent/ref/useRef";
-// import ClassTimer from "./comppnent/ClassTimer";
+import NavBar from "./comppnent/NavBar/NavBar";
+import ProductList from "./comppnent/productList/ProductList";
 
 export const UserContext = React.createContext();
-class app extends Component {
-  // constructor(props) {
-  //   super(props);
-  //   console.log("App.js constructor");
-  // }
 
-  state = {
-    products: [
-      { title: "node.js", price: "75 $", id: "1", quantity: 1 },
-      { title: "react.js", price: "85 $", id: "2", quantity: 2 },
-      { title: "vue.js", price: "95 $", id: "3", quantity: 3 },
-    ],
-    isShow: true,
-  };
+// class app extends Component {
+//   // constructor(props) {
+//   //   super(props);
+//   //   console.log("App.js constructor");
+//   // }
 
-  removeHandler = (id) => {
+//   state = {
+//     products: [
+//       { title: "node.js", price: "75 $", id: "1", quantity: 1 },
+//       { title: "react.js", price: "85 $", id: "2", quantity: 2 },
+//       { title: "vue.js", price: "95 $", id: "3", quantity: 3 },
+//     ],
+//     isShow: true,
+//   };
+
+//   removeHandler = (id) => {
+//     console.log("click", id);
+//     const fillterProduct = products.filter((p) => p.id !== id);
+//     setState({ products: fillterProduct });
+//   };
+
+//   incrementHandler = (id) => {
+//     const index = products.findIndex((item) => item.id === id);
+//     console.log(index);
+
+//     const product = { ...products[index] };
+//     product.quantity++;
+
+//     const products = [...products];
+//     products[index] = product;
+
+//     setState({ products });
+//   };
+
+//   decrementHandler = (id) => {
+//     const index = products.findIndex((item) => item.id === id);
+//     const product = { ...products[index] };
+//     if (product.quantity === 1) {
+//       const fillterProduct = products.filter((p) => p.id !== id);
+
+//       setState({ products: fillterProduct });
+//     } else {
+//       const products = [...products];
+//       product.quantity--;
+//       products[index] = product;
+//       setState({ products });
+//     }
+//   };
+
+//   changeHandler = (event, id) => {
+//     const index = products.findIndex((item) => item.id === id);
+//     const product = { ...products[index] };
+//     product.title = event.target.value;
+
+//     const products = [...products];
+//     products[index] = product;
+//     setState({ products });
+//   };
+
+//   componentDidMount() {
+//     // console.log("App.js componentDidMount");
+//   }
+
+//   componentDidUpdate(prevProps, prevState) {
+//     // console.log("App.js componentDidUpdate");
+//     // console.log("App.js", prevState);
+//   }
+
+//   render() {
+//     return (
+//       <>
+//         <UserContext.Provider value={"Salar"}>
+//           <NavBar
+//             totalItem={products.filter((p) => p.quantity > 0).length}
+//           />
+//           <ProductList
+//             products={products}
+//             onRemove={removeHandler}
+//             onIncrement={incrementHandler}
+//             onDecremnt={decrementHandler}
+//             onChange={changeHandler}
+//           />
+//         </UserContext.Provider>
+//       </>
+//     );
+//   }
+// }
+
+const App = () => {
+  const [products, setProducts] = useState([
+    { title: "node.js", price: "75 $", id: "1", quantity: 1 },
+    { title: "react.js", price: "85 $", id: "2", quantity: 2 },
+    { title: "vue.js", price: "95 $", id: "3", quantity: 3 },
+  ]);
+
+  const removeHandler = (id) => {
     console.log("click", id);
-    const fillterProduct = this.state.products.filter((p) => p.id !== id);
-    this.setState({ products: fillterProduct });
+    const fillterProduct = products.filter((p) => p.id !== id);
+    setProducts(fillterProduct);
   };
 
-  incrementHandler = (id) => {
-    const index = this.state.products.findIndex((item) => item.id === id);
+  const incrementHandler = (id) => {
+    const index = products.findIndex((item) => item.id === id);
     console.log(index);
 
-    const product = { ...this.state.products[index] };
+    const product = { ...products[index] };
     product.quantity++;
 
-    const products = [...this.state.products];
-    products[index] = product;
+    const updateProducts = [...products];
+    updateProducts[index] = product;
 
-    this.setState({ products });
+    setProducts(updateProducts);
   };
 
-  decrementHandler = (id) => {
-    const index = this.state.products.findIndex((item) => item.id === id);
-    const product = { ...this.state.products[index] };
+  const decrementHandler = (id) => {
+    const index = products.findIndex((item) => item.id === id);
+    const product = { ...products[index] };
     if (product.quantity === 1) {
-      const fillterProduct = this.state.products.filter((p) => p.id !== id);
+      const fillterProduct = products.filter((p) => p.id !== id);
 
-      this.setState({ products: fillterProduct });
+      setProducts(fillterProduct);
     } else {
-      const products = [...this.state.products];
+      const updateProducts = [...products];
       product.quantity--;
-      products[index] = product;
-      this.setState({ products });
+      updateProducts[index] = product;
+      setProducts(updateProducts);
     }
   };
 
-  changeHandler = (event, id) => {
-    const index = this.state.products.findIndex((item) => item.id === id);
-    const product = { ...this.state.products[index] };
+  const changeHandler = (event, id) => {
+    const index = products.findIndex((item) => item.id === id);
+    const product = { ...products[index] };
     product.title = event.target.value;
 
-    const products = [...this.state.products];
-    products[index] = product;
-    this.setState({ products });
+    const updateProducts = [...products];
+    updateProducts[index] = product;
+    setProducts(updateProducts);
   };
 
-  componentDidMount() {
-    // console.log("App.js componentDidMount");
-  }
+  return (
+    <>
+      <NavBar totalItem={products.filter((p) => p.quantity > 0).length} />
+      <ProductList
+        products={products}
+        onRemove={removeHandler}
+        onIncrement={incrementHandler}
+        onDecremnt={decrementHandler}
+        onChange={changeHandler}
+      />
+    </>
+  );
+};
 
-  componentDidUpdate(prevProps, prevState) {
-    // console.log("App.js componentDidUpdate");
-    // console.log("App.js", prevState);
-  }
-
-  render() {
-    return (
-      <>
-        {/* <UseRefExample /> */}
-
-        {/* <ClassRef /> */}
-        {/* <FunctionalRef /> */}
-
-        {/* <ParentComp /> */}
-
-        {/* <CLickCounter />
-        <HoverCounter /> */}
-        {/* <UserContext.Provider value={"Salar"}>
-          <NavBar
-            totalItem={this.state.products.filter((p) => p.quantity > 0).length}
-          />
-          <ProductList
-            products={this.state.products}
-            onRemove={this.removeHandler}
-            onIncrement={this.incrementHandler}
-            onDecremnt={this.decrementHandler}
-            onChange={this.changeHandler}
-          />
-        </UserContext.Provider> */}
-        <CounterProvider>
-          <p>welcome to context</p>
-          <CounterOne />
-          {/* <CounterReducer /> */}
-        </CounterProvider>
-      </>
-    );
-  }
-}
-
-export default Wrapper(app, "container");
+export default Wrapper(App, "container");
