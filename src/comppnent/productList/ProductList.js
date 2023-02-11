@@ -1,14 +1,13 @@
-import React, { Component } from "react";
-import Product from  "../product/Product";
+import React from "react";
+import Product from "../product/Product";
+import { useProducts} from "../Provider/ProductProvider";
 
-class ProductList extends Component {
-  componentDidUpdate(prevProps, prevState) {
-    console.log("ProductList.js componentDidUpdate");
-  }
+const ProductList = (props) => {
+  const products = useProducts();
+  // const setProducts = useProductsActions();
 
-  renderProdact = () => {
-    const { products, onChange, onIncrement, onDecremnt, onRemove } =
-      this.props;
+  const renderProdact = () => {
+    const {  onChange, onIncrement, onDecremnt, onRemove } = props;
 
     if (products.length === 0) return <div>سبد خرید شما خالی میباشد</div>;
 
@@ -25,16 +24,12 @@ class ProductList extends Component {
       );
     });
   };
-  render() {
-    console.log("ProductList.js render");
-    const { products } = this.props;
-    return (
-      <div className="container">
-        {!products.length && <div>برگرد ب فروشگاه پسر</div>}
-        {this.renderProdact()}
-      </div>
-    );
-  }
-}
+  return (
+    <div className="container">
+      {!products.length && <div>برگرد ب فروشگاه پسر</div>}
+      {renderProdact()}
+    </div>
+  );
+};
 
 export default ProductList;

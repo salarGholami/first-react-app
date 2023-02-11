@@ -1,7 +1,5 @@
 import style from "./Product.module.css";
 import { BiTrash } from "react-icons/bi";
-import { useContext, useEffect } from "react";
-import { UserContext } from "../../App";
 
 const Product = ({
   product,
@@ -11,9 +9,6 @@ const Product = ({
   onDelete,
   click,
 }) => {
-  useEffect(() => {}, []);
-  const user = useContext(UserContext);
-  console.log(user);
   return (
     <div className={style.product} onClick={click}>
       <p>Product Name:{product.title}</p>
