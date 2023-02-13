@@ -3,8 +3,7 @@ import { useProducts, useProductsActions } from "../Provider/ProductProvider";
 
 const ProductList = (props) => {
   const products = useProducts();
-  const { removeHandler, incrementHandler, decrementHandler, changeHandler } =
-    useProductsActions();
+  const dispatch = useProductsActions();
 
   const renderProdact = () => {
     if (products.length === 0) return <div>سبد خرید شما خالی میباشد</div>;
@@ -14,10 +13,10 @@ const ProductList = (props) => {
         <Product
           product={product}
           key={index}
-          onDelete={() => removeHandler(product.id)}
-          onIncrementHandler={() => incrementHandler(product.id)}
-          onDencremntHandler={() => decrementHandler(product.id)}
-          changeHandler={(e) => changeHandler(e, product.id)}
+          onDelete={() => dispatch({type : "remove" , id : product.id})}
+          onIncrementHandler={() => dispatch({type : "increment" , id : product.id})}
+          onDencremntHandler={() =>  dispatch({type : "decrement" , id : product.id})}
+          changeHandler={(e) =>  dispatch({type : "edit" , id : product.id, event:e})}
         />
       );
     });
