@@ -1,14 +1,12 @@
-import React from "react";
 import Product from "../product/Product";
-import { useProducts} from "../Provider/ProductProvider";
+import { useProducts, useProductsActions } from "../Provider/ProductProvider";
 
 const ProductList = (props) => {
   const products = useProducts();
-  // const setProducts = useProductsActions();
+  const { removeHandler, incrementHandler, decrementHandler, changeHandler } =
+    useProductsActions();
 
   const renderProdact = () => {
-    const {  onChange, onIncrement, onDecremnt, onRemove } = props;
-
     if (products.length === 0) return <div>سبد خرید شما خالی میباشد</div>;
 
     return products.map((product, index) => {
@@ -16,10 +14,10 @@ const ProductList = (props) => {
         <Product
           product={product}
           key={index}
-          onDelete={() => onRemove(product.id)}
-          onIncrementHandler={() => onIncrement(product.id)}
-          onDencremntHandler={() => onDecremnt(product.id)}
-          changeHandler={(e) => onChange(e, product.id)}
+          onDelete={() => removeHandler(product.id)}
+          onIncrementHandler={() => incrementHandler(product.id)}
+          onDencremntHandler={() => decrementHandler(product.id)}
+          changeHandler={(e) => changeHandler(e, product.id)}
         />
       );
     });
