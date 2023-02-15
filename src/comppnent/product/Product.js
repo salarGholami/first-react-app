@@ -14,12 +14,12 @@ const Product = ({
       <p>Product Name:{product.title}</p>
       <p>Product price:{product.price}</p>
       <span className={style.value}>{product.quantity}</span>
-      <input
+      {/* <input
         className={style.input}
         type="text"
         onChange={changeHandler}
         value={product.title}
-      />
+      /> */}
       <button
         className={`${style.button} ${style.inc}`}
         onClick={onIncrementHandler}

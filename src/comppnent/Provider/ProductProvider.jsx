@@ -1,13 +1,14 @@
 import React, { useReducer } from "react";
 import { useContext } from "react";
+import {productsData} from "../db/product";
 
 const ProductContext = React.createContext(); //state
 const ProductContextDispatcher = React.createContext(); //setState
-const initialState = [
-  { title: "node.js", price: "75 $", id: "1", quantity: 1 },
-  { title: "react.js", price: "85 $", id: "2", quantity: 2 },
-  { title: "vue.js", price: "95 $", id: "3", quantity: 3 },
-];
+// const initialState = [
+//   { title: "node.js", price: "75 $", id: "1", quantity: 1 },
+//   { title: "react.js", price: "85 $", id: "2", quantity: 2 },
+//   { title: "vue.js", price: "95 $", id: "3", quantity: 3 },
+// ];
 
 const reducer = (state, action) => {
   console.log(state, action);
@@ -56,7 +57,7 @@ const reducer = (state, action) => {
 };
 
 const ProductProvider = ({ children }) => {
-  const [products, dipatch] = useReducer(reducer, initialState);
+  const [products, dipatch] = useReducer(reducer, productsData);
 
   return (
     <div>
