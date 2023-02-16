@@ -38,7 +38,7 @@ export const productsData = [
     title: "Perspolise T-Shirt",
     quantity: 1,
     description: "",
-    availablesSize: ["S", "M", "XL", "XXL", "XXXL"],
+    availablesSize: ["S", "M", "XL", "XXL"],
     style: "gym",
     price: 60.5,
     iseFreeShipping: false,

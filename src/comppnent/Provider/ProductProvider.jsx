@@ -1,6 +1,6 @@
 import React, { useReducer } from "react";
 import { useContext } from "react";
-import {productsData} from "../db/product";
+import { productsData } from "../db/product";
 
 const ProductContext = React.createContext(); //state
 const ProductContextDispatcher = React.createContext(); //setState
@@ -11,7 +11,6 @@ const ProductContextDispatcher = React.createContext(); //setState
 // ];
 
 const reducer = (state, action) => {
-  console.log(state, action);
   switch (action.type) {
     case "increment": {
       const index = state.findIndex((item) => item.id === action.id);
@@ -51,6 +50,9 @@ const reducer = (state, action) => {
     case "remove":
       const fillterProduct = state.filter((p) => p.id !== action.id);
       return fillterProduct;
+    case "filter":
+      console.log(action.event.target.value);
+      return state;
     default:
       return state;
   }
