@@ -4,11 +4,6 @@ import { productsData } from "../db/product";
 
 const ProductContext = React.createContext(); //state
 const ProductContextDispatcher = React.createContext(); //setState
-// const initialState = [
-//   { title: "node.js", price: "75 $", id: "1", quantity: 1 },
-//   { title: "react.js", price: "85 $", id: "2", quantity: 2 },
-//   { title: "vue.js", price: "95 $", id: "3", quantity: 3 },
-// ];
 
 const reducer = (state, action) => {
   switch (action.type) {
@@ -50,9 +45,16 @@ const reducer = (state, action) => {
     case "remove":
       const fillterProduct = state.filter((p) => p.id !== action.id);
       return fillterProduct;
-    case "filter":
-      console.log(action.event.target.value);
-      return state;
+    case "filter": {
+      if (action.event.target.value === "") {  
+        return productsData;
+      } else {
+        const updatedProducts = productsData.filter(
+          (p) => p.availablesSize.indexOf(action.event.target.value) >= 0
+        );
+        return updatedProducts;
+      }
+    }
     default:
       return state;
   }
