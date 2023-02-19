@@ -46,11 +46,12 @@ const reducer = (state, action) => {
       const fillterProduct = state.filter((p) => p.id !== action.id);
       return fillterProduct;
     case "filter": {
-      if (action.event.target.value === "") {  
+      const value = action.selectedOption.value;
+      if (value === "") {
         return productsData;
       } else {
         const updatedProducts = productsData.filter(
-          (p) => p.availablesSize.indexOf(action.event.target.value) >= 0
+          (p) => p.availablesSize.indexOf(value) >= 0
         );
         return updatedProducts;
       }
