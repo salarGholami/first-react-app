@@ -1,0 +1,42 @@
+/* .select {
+  color: black;
+  width: 200px;
+}
+
+.select label {
+  background-color: black;
+  width: 200px;
+}
+
+.selectContainer {
+  display: flex;
+  align-items: center;
+}
+
+.selectContainer span {
+  display: block;
+  margin-right: 1rem;
+} */
+.formControl {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 20px 0;
+}
+.formControl input {
+  width: 38rem;
+  margin-left: 1rem;
+  outline: none;
+  border: 1px solid #75d125;
+  border-radius: 5px;
+  color: #75d125;
+  background: transparent;
+  padding: 15px 25px;
+}
+
+.formControl input:focus {
+  border: 3px solid #75d125;
+}
+
+.formControl span {
+}
