@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { useProductsActions } from "../Provider/ProductProvider";
-import Select from "react-select";
 import style from "./Filter.module.css";
+import SelectComponent from "../../common/Select/Select";
 
 const options = [
   { value: "", label: "All" },
@@ -38,25 +38,20 @@ const Filter = () => {
   return (
     <div className={style.filter}>
       <p>filter products base on:</p>
-      <div className={style.selectContainer}>
-        <span>order by :</span>
-        <Select
-          value={value}
-          onChange={changeHandler}
-          options={options}
-          className={style.select}
-        />
-      </div>
 
-      <div className={style.selectContainer}>
-        <span>order by :</span>
-        <Select
-          value={sort}
-          onChange={sortHandler}
-          options={sortOptions}
-          className={style.select}
-        />
-      </div>
+      <SelectComponent
+        title="filter by size"
+        value={value}
+        onChange={changeHandler}
+        options={options}
+      />
+
+      <SelectComponent
+        title="sort by price"
+        value={sort}
+        onChange={sortHandler}
+        options={sortOptions}
+      />
     </div>
   );
 };
