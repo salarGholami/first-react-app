@@ -1,18 +1,14 @@
 import style from "./Select.module.css";
 import Select from "react-select";
 
-const SelectComponent = ({ value, onChange, options, title }) => {
+const SelectComponent = ({ title, ...rest }) => {
+  console.log( )
   return (
     <div className={style.selectContainer}>
       <span>{title}</span>
-      <Select
-        value={value}
-        onChange={onChange}
-        options={options}
-        className={style.select}
-      />
+      <Select {...rest} className={style.select} />
     </div>
-  );
+  );  
 };
 
 export default SelectComponent;

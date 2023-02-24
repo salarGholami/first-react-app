@@ -1,23 +1,12 @@
-/* .filter {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin: 20px 0;
-  } */
-  .select {
-    color: black;
-    width: 200px;
-  }
-  .select label {
-    background-color: black;
-    width: 200px;
-  }
-  .selectContainer {
-    display: flex;
-    align-items: center;
-  }
-  .selectContainer span {
-    display: block;
-    margin-right: 1rem;
-  }
-  
+.select {
+  color: black;
+  width: 200px;
+}
+.selectContainer {
+  display: flex;
+  align-items: center;
+}
+.selectContainer span {
+  display: block;
+  margin-right: 1rem;
+}
