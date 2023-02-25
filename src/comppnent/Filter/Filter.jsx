@@ -2,8 +2,9 @@ import { useState } from "react";
 import { useProductsActions } from "../Provider/ProductProvider";
 import style from "./Filter.module.css";
 import SelectComponent from "../../common/Select/Select";
+import SearchBar from "../../common/search/Search";
 
-const options = [
+const filterOptions = [
   { value: "", label: "All" },
   { value: "S", label: "s" },
   { value: "M", label: "M" },
@@ -18,15 +19,15 @@ const sortOptions = [
 ];
 
 const Filter = () => {
-  const [value, setValue] = useState("");
+  const [filter, setFilter] = useState("");
   const [sort, setSort] = useState("");
 
   const dispatch = useProductsActions();
 
-  const changeHandler = (selectedOption) => {
-    setValue(selectedOption);
+  const filterHandler = (selectedOption) => {
     dispatch({ type: "filter", selectedOption });
-    dispatch({ type: "sort", selectedOption });
+    dispatch({ type: "sort", selectedOption: sort });
+    setFilter(selectedOption);
   };
 
   const sortHandler = (selectedOption) => {
@@ -36,23 +37,27 @@ const Filter = () => {
   };
 
   return (
-    <div className={style.filter}>
-      <p>filter products base on:</p>
+    <section>
+      <SearchBar filter={filter} />
 
-      <SelectComponent
-        title="filter by size"
-        value={value}
-        onChange={changeHandler}
-        options={options}
-      />
+      <div className={style.filter}>
+        <p>filter products base on:</p>
+        
+        <SelectComponent
+          title="filter by size"
+          value={filter}
+          onChange={filterHandler}
+          options={filterOptions}
+        />
 
-      <SelectComponent
-        title="sort by price"
-        value={sort}
-        onChange={sortHandler}
-        options={sortOptions}
-      />
-    </div>
+        <SelectComponent
+          title="sort by price"
+          value={sort}
+          onChange={sortHandler}
+          options={sortOptions}
+        />
+      </div>
+    </section>
   );
 };
 

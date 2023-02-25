@@ -1,6 +1,6 @@
 import React from "react";
 import "./App.css";
-import SearchBar from "./common/search/Search";
+// import SearchBar from "./common/search/Search";
 import Filter from "./comppnent/Filter/Filter";
 import Wrapper from "./comppnent/hoc/Wrapper";
 import NavBar from "./comppnent/NavBar/NavBar";
@@ -12,7 +12,6 @@ const App = () => {
     <>
       <ProductProvider>
         <NavBar />
-        <SearchBar />
         <Filter />
         <ProductList />
       </ProductProvider>
